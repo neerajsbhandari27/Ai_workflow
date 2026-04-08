@@ -1,0 +1,24 @@
+# LLM — Azure OpenAI via LiteLLM
+# Pin litellm to last known stable version with pydantic v2 + Python 3.11
+litellm==1.30.7
+openai>=1.30.0,<2.0.0
+
+# Pydantic - pin to avoid SystemError on Python 3.11
+pydantic>=2.0.0,<2.7.0
+
+# API server
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-dotenv>=1.0.0
+httpx>=0.27.0
+
+# RAG — ChromaDB with Azure embeddings (no sentence-transformers / OpenBLAS)
+chromadb>=0.5.0
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+
+# Document loaders
+pypdf>=4.0.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
