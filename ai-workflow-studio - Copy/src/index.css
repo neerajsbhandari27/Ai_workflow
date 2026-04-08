@@ -1,0 +1,81 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0a0a0a;
+  --bg-1:       #111111;
+  --bg-2:       #181818;
+  --bg-3:       #222222;
+  --border:     #2a2a2a;
+  --border-2:   #383838;
+  --accent:     #e8ff47;
+  --accent-dim: rgba(232,255,71,0.12);
+  --accent-dim2:rgba(232,255,71,0.05);
+  --red:        #ff4757;
+  --red-dim:    rgba(255,71,87,0.12);
+  --blue:       #47b3ff;
+  --blue-dim:   rgba(71,179,255,0.12);
+  --green:      #47ffb3;
+  --green-dim:  rgba(71,255,179,0.12);
+  --text:       #f0f0f0;
+  --text-2:     #999999;
+  --text-3:     #555555;
+  --mono:       'Space Mono', monospace;
+  --sans:       'DM Sans', sans-serif;
+  --radius:     4px;
+  --radius-lg:  8px;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-1); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+/* ── ReactFlow overrides ─────────────────────────────────── */
+.react-flow__background { background: var(--bg-1) !important; }
+.react-flow__edge-path { stroke: var(--border-2) !important; stroke-width: 1.5px !important; }
+.react-flow__edge.selected .react-flow__edge-path { stroke: var(--accent) !important; }
+.react-flow__handle {
+  background: var(--accent) !important;
+  border: 2px solid var(--bg) !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+.react-flow__controls {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: none !important;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-2) !important;
+  fill: var(--text-2) !important;
+}
+.react-flow__controls-button:hover {
+  background: var(--bg-3) !important;
+  fill: var(--text) !important;
+}
+.react-flow__minimap {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeIn  { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+@keyframes pulse   { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+
+.fade-in  { animation: fadeIn  0.22s ease both; }
+.slide-in { animation: slideIn 0.18s ease both; }
